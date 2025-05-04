@@ -96,7 +96,7 @@ const Home: React.FC = () => {
         const prefix = stylePromptPrefixMap[selectedStyle];
         const finalPrompt = `${prefix}${form.prompt.trim()}`;
         console.log(finalPrompt);
-        const HUGGING_FACE_API_KEY = process.env.REACT_APP_HUGGING_FACE_API_KEY;
+        const HUGGING_FACE_API_KEY = import.meta.env.REACT_APP_HUGGING_FACE_API_KEY;
         const promises = Array(4)
           .fill(null)
           .map(() =>
