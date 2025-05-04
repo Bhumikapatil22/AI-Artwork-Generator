@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { jwtDecode } from 'jwt-decode';
-import dotenv from 'dotenv';
-dotenv.config();
+
 import { 
   Navbar, 
   Tabs, 
