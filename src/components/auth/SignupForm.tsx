@@ -25,7 +25,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ isOpen, onClose, onSwitchToLogi
   const handleSendOTP = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const res = await fetch('http://localhost:8000/api/v1/auth/send-otp', {
+      const res = await fetch(`${import.meta.env.VITE_API_KEY}auth/send-otp`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

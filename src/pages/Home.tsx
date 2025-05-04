@@ -9,7 +9,7 @@ import {
   GenerationOptions, 
   ImageDisplay, 
   CommunityImages,
-  FormField,
+  // FormField,
   FAQSection
 } from '../components';
 import { getRandomPrompt } from '../utils';
@@ -49,7 +49,7 @@ const Home: React.FC = () => {
     const fetchPosts = async () => {
       setLoading(true);
       try {
-        const response = await fetch("http://localhost:8000/api/v1/post", {
+        const response = await fetch(`${import.meta.env.VITE_API_KEY}post`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -100,7 +100,7 @@ const Home: React.FC = () => {
         const promises = Array(4)
           .fill(null)
           .map(() =>
-            fetch('http://localhost:8000/api/v1/imgGenerate', {
+            fetch(`${import.meta.env.VITE_API_KEY}imgGenerate`, {
               method: 'POST',
               headers: {
                
@@ -164,7 +164,7 @@ const Home: React.FC = () => {
     if (form.prompt && form.photos.length > 0 && form.name) {
       setLoading(true);
       try {
-        const response = await fetch('http://localhost:8000/api/v1/post', {
+        const response = await fetch(`${import.meta.env.VITE_API_KEY}post`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -179,7 +179,7 @@ const Home: React.FC = () => {
         await response.json();
         
         // Refresh posts
-        const postsResponse = await fetch("http://localhost:8000/api/v1/post", {
+        const postsResponse = await fetch(`${import.meta.env.VITE_API_KEY}post`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",

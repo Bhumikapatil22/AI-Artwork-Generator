@@ -134,7 +134,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ isOpen, onClose, onSwitchToSignup
     setError('');
   
     try {
-      const response = await axios.post('http://localhost:8000/api/v1/auth/login', formData);
+      const response = await axios.post(`${import.meta.env.VITE_API_KEY}auth/login`, formData);
       
       // Store token
       // localStorage.setItem('authToken', response.data.token); // or just "true" if no token

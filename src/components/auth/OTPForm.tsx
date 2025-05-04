@@ -9,7 +9,7 @@ interface OTPFormProps {
 }
 
 
-const OTPForm: React.FC<OTPFormProps> = ({ onClose, email, name, password }) => {
+const OTPForm: React.FC<OTPFormProps> = ({  email, name, password }) => {
   const [otp, setOtp] = useState(['', '', '', '', '', '']);
   const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
   useEffect(() => {
@@ -47,7 +47,7 @@ const OTPForm: React.FC<OTPFormProps> = ({ onClose, email, name, password }) => 
 
     try {
       // Step 1: Verify OTP
-      const otpRes = await fetch('http://localhost:8000/api/v1/auth/verify-otp', {
+      const otpRes = await fetch(`${import.meta.env.VITE_API_KEY}auth/verify-otp`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, enteredOtp: otpValue }),
@@ -59,7 +59,7 @@ const OTPForm: React.FC<OTPFormProps> = ({ onClose, email, name, password }) => 
       }
 
       // Step 2: Signup
-      const signupRes = await fetch('http://localhost:8000/api/v1/auth/signup', {
+      const signupRes = await fetch(`${import.meta.env.VITE_API_KEY}auth/signup`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, email, password }),
