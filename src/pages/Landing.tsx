@@ -9,7 +9,7 @@ const Landing: React.FC = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await fetch(`$(import.meta.env.VITE_API_URL}/post`, {
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/post`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
