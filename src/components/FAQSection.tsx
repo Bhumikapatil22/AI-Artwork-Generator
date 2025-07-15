@@ -49,7 +49,9 @@ const FAQSection: React.FC = () => {
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-16">
-      <h2 className="text-2xl font-bold text-center text-white mb-8">Frequently asked questions</h2>
+      <h2 className="text-xl sm:text-2xl font-bold text-center text-white mb-8">
+        Frequently asked questions
+      </h2>
       
       <div className="space-y-4">
         {faqItems.map((item) => (
@@ -58,10 +60,12 @@ const FAQSection: React.FC = () => {
             className="border-b border-gray-700 pb-4"
           >
             <button
-              className="flex justify-between items-center w-full text-left py-4 focus:outline-none"
+              className="flex justify-between items-center w-full text-left py-3 focus:outline-none"
               onClick={() => toggleItem(item.id)}
             >
-              <span className="text-lg font-medium text-white">{item.id}. {item.question}</span>
+              <span className="text-base sm:text-lg font-medium text-white">
+                {item.id}. {item.question}
+              </span>
               <ChevronDown 
                 className={`w-5 h-5 text-gray-400 transition-transform duration-200 ${
                   openItem === item.id ? 'transform rotate-180' : ''
@@ -70,7 +74,7 @@ const FAQSection: React.FC = () => {
             </button>
             
             {openItem === item.id && (
-              <div className="mt-2 text-gray-400 pb-4 animate-fadeIn">
+              <div className="mt-2 text-sm sm:text-base text-gray-400 pb-4 animate-fadeIn">
                 {item.answer}
               </div>
             )}

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Share2 } from 'lucide-react';
 import Loader from './Loader';
 
 interface ImageDisplayProps {
@@ -13,9 +12,7 @@ interface ImageDisplayProps {
 const ImageDisplay: React.FC<ImageDisplayProps> = ({
   photos,
   isGenerating,
-  // previewImage,
-  onShare,
-  isSharing
+
 }) => {
   if (isGenerating) {
     return (
@@ -28,8 +25,8 @@ const ImageDisplay: React.FC<ImageDisplayProps> = ({
   if (photos.length === 0) {
     return (
       <div className="text-center py-8 mt-6">
-        <h1 className="text-4xl font-bold  mb-3">
-          Create <span className="font-['Times_New_Roman',_serif] text-blue-500"><i>Images</i></span> from words with AI
+        <h1 className="text-2xl md:text-4xl font-bold  mb-3">
+          Create <span className="font-['Times_New_Roman',_serif] bg-gradient-to-r from-blue-500 to-emerald-500 text-transparent bg-clip-text"><i>Images</i></span> from words with AI
         </h1>
         
       </div>
@@ -53,7 +50,7 @@ const ImageDisplay: React.FC<ImageDisplayProps> = ({
         ))}
       </div>
       
-      <div className="mt-6 flex justify-center">
+      {/* <div className="mt-6 flex justify-center">
         <button
           onClick={onShare}
           disabled={isSharing}
@@ -62,7 +59,7 @@ const ImageDisplay: React.FC<ImageDisplayProps> = ({
           <Share2 className="w-5 h-5" />
           <span>{isSharing ? 'Sharing...' : 'Share with Community'}</span>
         </button>
-      </div>
+      </div> */}
     </div>
   );
 };
